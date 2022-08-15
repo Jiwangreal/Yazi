@@ -1,3 +1,4 @@
+.PHONY: plugin
 #指定编译器
 CC = g++
 
