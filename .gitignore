@@ -40,3 +40,7 @@
 *.out
 *.app
 main
+
+GPATH
+GRTAGS
+GTAGS

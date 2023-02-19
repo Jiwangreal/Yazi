@@ -106,6 +106,8 @@ def stat(log_file):
             total_time += total_time_cost
         else:
             break
+    # 连接耗时：发起连接-》connect连接建立
+    # 请求耗时：发送消息给server-》server返回消息给client
     print(f'连接耗时={round(total_conn_time / total, 3)}ms, 请求耗时={round(total_req_time / total, 3)}ms, 总共耗时={round(total_time / total, 3)}ms')
 
 

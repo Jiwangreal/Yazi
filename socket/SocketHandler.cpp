@@ -56,7 +56,7 @@ void SocketHandler::remove(Socket * socket)
     socket->close();
     m_sockpool.release(socket);
 }
-
+// main thread
 void SocketHandler::handle(int max_connections, int wait_time)
 {
     m_epoll = new EventPoller(false);
