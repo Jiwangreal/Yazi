@@ -222,6 +222,11 @@ bool IniFile::has(const string &section, const string& key)
     return false;
 }
 
+// void IniFile::set(const string &section, const string &key, const Value &value)
+// {
+//     m_inifile[section][key] = value;
+// }
+
 Value & IniFile::get(const string &section, const string &key)
 {
     return m_inifile[section][key];
