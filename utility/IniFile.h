@@ -54,6 +54,7 @@ public:
     // set values in different formats
     // union API
     // void set(const string &section, const string &key, const Value& value);
+
     void set(const string &section, const string &key, bool value);
     void set(const string &section, const string &key, int value);
     void set(const string &section, const string &key, double value);
