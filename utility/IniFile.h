@@ -1,87 +1,85 @@
 #pragma once
 
 #include <string.h>
-#include <string>
+
 #include <map>
+#include <string>
 using namespace std;
 
 #include <sstream>
 using std::ostringstream;
 
-namespace yazi
-{
-    namespace utility
-    {
+namespace abc {
+namespace cba {};
+}; // namespace abc
 
-        class Value
-        {
-        public:
-            Value();
-            Value(bool value);
-            Value(int value);
-            Value(double value);
-            Value(const string &value);
-            ~Value();
+namespace yazi {
+namespace utility {
+class Value {
+public:
+  Value();
+  Value(bool value);
+  Value(int value);
+  Value(double value);
+  Value(const string &value);
 
-            Value &operator=(bool value);
-            Value &operator=(int value);
-            Value &operator=(double value);
-            Value &operator=(const string &value);
+  ~Value();
 
-            operator bool();
-            operator int();
-            operator double();
-            operator string();
-            operator string() const;
+  Value &operator=(bool value);
+  Value &operator=(int value);
+  Value &operator=(double value);
+  Value &operator=(const string &value);
 
-        private:
-            string m_value;
-        };
+  operator bool();
+  operator int();
+  operator double();
+  operator string();
+  operator string() const;
 
-        class IniFile
-        {
-        public:
-            IniFile();
-            IniFile(const string &filename);
-            ~IniFile();
+private:
+  string m_value;
+};
 
-            bool load(const string &filename);
-            void save(const string &filename);
-            void show();
-            void clear();
+class IniFile {
+public:
+  IniFile();
+  IniFile(const string &filename);
+  ~IniFile();
 
-            // read values in different formats
-            Value &get(const string &section, const string &key);
+  bool load(const string &filename);
+  void save(const string &filename);
+  void show();
+  void clear();
 
-            // set values in different formats
-            // union API
-            // void set(const string &section, const string &key, const Value& value);
+  // read values in different formats
+  Value &get(const string &section, const string &key);
 
-            void set(const string &section, const string &key, bool value);
-            void set(const string &section, const string &key, int value);
-            void set(const string &section, const string &key, double value);
-            void set(const string &section, const string &key, const string &value);
+  // set values in different formats
+  // union API
+  // void set(const string &section, const string &key, const Value& value);
+  // { m_inifile[section][key] = value; }
+  void set(const string &section, const string &key, bool value);
+  void set(const string &section, const string &key, int value);
+  void set(const string &section, const string &key, double value);
+  void set(const string &section, const string &key, const string &value);
 
-            bool has(const string &section);
-            bool has(const string &section, const string &key);
+  bool has(const string &section);
+  bool has(const string &section, const string &key);
 
-            void remove(const string &section);
-            void remove(const string &section, const string &key);
+  void remove(const string &section);
+  void remove(const string &section, const string &key);
 
-            typedef std::map<string, Value> Section;
-            Section &operator[](const string &key)
-            {
-                return m_inifile[key];
-            }
+  typedef std::map<string, Value> Section;
+  Section &operator[](const string &key) { return m_inifile[key]; }
 
-        private:
-            string trim(string s);
+private:
+  string trim(string s);
 
-        private:
-            string m_filename;
+private:
+  string m_filename;
 
-            std::map<string, Section> m_inifile;
-        };
+  std::map<string, Section> m_inifile;
+};
 
-    }
-}
+} // namespace utility
+} // namespace yazi
