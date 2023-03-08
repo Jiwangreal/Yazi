@@ -20,6 +20,7 @@ TEST(TestValue, IniFile) {
 
   IniFile ini;
   ini.load(INI_FILE);
+  ini.show();
 
   string ip = ini["server"]["ip"];
   EXPECT_EQ(ip, "127.0.0.1");

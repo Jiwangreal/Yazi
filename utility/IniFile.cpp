@@ -171,6 +171,8 @@ void IniFile::save(const string& filename)
 {
     // open the INI file for writing
     ofstream fout(filename.c_str());
+    if (fout.fail())
+        return;
     std::map<string, Section>::iterator it;
     for (it = m_inifile.begin(); it != m_inifile.end(); ++it)
     {
