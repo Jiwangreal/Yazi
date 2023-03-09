@@ -1,6 +1,10 @@
 
 set(UNITE_TEST_NAME "yazi_test")
-add_executable(${UNITE_TEST_NAME} test.cc main.cc ${PROJECT_ROOT}/utility/IniFile.cpp)
+add_executable(${UNITE_TEST_NAME} 
+    test.cc 
+    main.cc 
+    ${PROJECT_ROOT}/utility/IniFile.cpp 
+    ${PROJECT_ROOT}/utility/NewLogger.cc)
 add_definitions(-DINI_FILE="${PROJECT_ROOT}/config/main.ini")
 
 target_include_directories(${UNITE_TEST_NAME}
