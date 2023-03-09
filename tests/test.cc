@@ -8,6 +8,20 @@
 using namespace std;
 using namespace yazi::utility;
 
+// #define BASENAME(X) strchr('/')
+
+char *Getbasename(char *url) {
+  auto result = strchr(url, '/');
+  while (result) {
+    url++;
+    result = strchr(url, '/');
+    if (result == nullptr) {
+      break;
+    }
+  }
+  return url;
+}
+
 TEST(TestValue, IniFile) {
   Value v(1);
   int v1 = v; // 等价于int v1 = (int)v;
@@ -30,4 +44,5 @@ TEST(TestValue, IniFile) {
   using namespace yazi::NEW_UTILITY;
   Logger::instace()->open("./txt.log");
   Logger::instace()->log(Logger::ERROR, __FILE__, __LINE__, "china no 1");
+  std::cout << Getbasename("/home/wangji/txt.log") << std::endl;
 }
