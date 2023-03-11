@@ -8,9 +8,15 @@
 using namespace std;
 using namespace yazi::utility;
 
-// #define BASENAME(X) strchr('/')
+#define __NEW_FILENAME__                                                       \
+  (strrchr(__FILE__, '/') ? strrchr(__FILE__, '/') + 1 : __FILE__)
 
-char *Getbasename(char *url) {
+#define __NEW_FILENAME_1__ (strrchr(__FILE__, '/') + 1)
+#define BASENAME(str) (strrchr(str, '/') ? strrchr(str, '/') + 1 : str)
+
+char*
+Getbasename(char* url)
+{
   auto result = strchr(url, '/');
   while (result) {
     url++;
@@ -22,7 +28,8 @@ char *Getbasename(char *url) {
   return url;
 }
 
-TEST(TestValue, IniFile) {
+TEST(TestValue, IniFile)
+{
   Value v(1);
   int v1 = v; // 等价于int v1 = (int)v;
 
@@ -44,5 +51,23 @@ TEST(TestValue, IniFile) {
   using namespace yazi::NEW_UTILITY;
   Logger::instace()->open("./txt.log");
   Logger::instace()->log(Logger::ERROR, __FILE__, __LINE__, "china no 1");
-  std::cout << Getbasename("/home/wangji/txt.log") << std::endl;
+  char str[] = "/home/wangji/txt.log";
+  std::cout << Getbasename(str) << std::endl;
+  std::cout << __NEW_FILENAME__ << std::endl;
+  std::cout << __NEW_FILENAME_1__ << std::endl;
+  std::cout << BASENAME(str) << std::endl;
+
+  // Logger::instace()->setLevel(Logger::INFO);
+
+  debug("wang yan xi");
+  info("info: wang yan xi");
+  // Logger::instace()->setLevel(Logger::DEBUG);
+  Logger::instace()->max(1024); // 单位是bytes
+  info("info: wang yan xi");
+  info("info: wang yan xi");
+  info("info: wang yan xi");
+  info("info: wang yan xi");
+  info("info: wang yan xi");
+  info("info: wang yan xi");
+  info("info: wang yan xi");
 }
