@@ -1,6 +1,8 @@
 
-#include "IniFile.h"
-#include "NewLogger.h"
+#include "utility/IniFile.h"
+#include "utility/NewLogger.h"
+#include "utility/Singleton.h"
+#include "utility/SingletonA.h"
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
 #include <iostream>
@@ -70,4 +72,11 @@ TEST(TestValue, IniFile)
   info("info: wang yan xi");
   info("info: wang yan xi");
   info("info: wang yan xi");
+}
+
+TEST(TestSIngletonA, SIngletonA)
+{
+
+  A::instance()->show();
+  Singleton<B>::instance()->show();
 }

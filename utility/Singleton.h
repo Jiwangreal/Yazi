@@ -3,23 +3,50 @@
 namespace yazi {
 namespace utility {
 
-template <typename T>
+template<typename T>
 class Singleton
 {
 public:
-    static T * instance()
-    {
-        static T * instance = NULL;
-        if (instance == NULL)
-            instance = new T();
-        return instance;
-    }
+  static T* instance()
+  {
+    static T* instance = nullptr;
+    if (instance == nullptr)
+      instance = new T();
+    return instance;
+  }
 
 protected:
-    Singleton() {}
-    Singleton(const Singleton<T> &);
-    Singleton<T> & operator = (const Singleton<T> &);
-    ~Singleton() {}
+  Singleton() {}
+  Singleton(const Singleton<T>&);
+  Singleton<T>& operator=(const Singleton<T>&);
+  ~Singleton() {}
 };
 
-}}
+namespace other {
+template<typename T>
+class Singleton
+{
+public:
+  static T* instance()
+  {
+    if (instance == nullptr)
+      m_instance = new T();
+    return m_instance;
+  }
+
+protected:
+  Singleton() {}
+  Singleton(const Singleton<T>&);
+  Singleton<T>& operator=(const Singleton<T>&);
+  ~Singleton() {}
+
+private:
+  static T* m_instance;
+};
+
+template<typename T>
+T* Singleton<T>::m_instance = nullptr;
+}
+
+}
+}

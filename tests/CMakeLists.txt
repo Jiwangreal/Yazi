@@ -8,7 +8,7 @@ add_executable(${UNITE_TEST_NAME}
 add_definitions(-DINI_FILE="${PROJECT_ROOT}/config/main.ini")
 
 target_include_directories(${UNITE_TEST_NAME}
-    PUBLIC ${PROJECT_ROOT}/utility
+    PUBLIC ${PROJECT_ROOT}
 )
 target_link_libraries(${UNITE_TEST_NAME} gtest gmock pthread)
 
