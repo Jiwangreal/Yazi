@@ -109,8 +109,8 @@ Logger::rotate()
 
   char timestamp[32];
   memset(timestamp, 0, sizeof(timestamp));
-  strftime(timestamp, sizeof(timestamp), "%Y-%m-%d %H:%M:%S  ", ptm);
-  string filename = m_filename + timestamp;
+  strftime(timestamp, sizeof(timestamp), "%Y-%m-%d-%H:%M:%S", ptm);
+  string filename = m_filename + "_" + timestamp;
 
   if (rename(m_filename.c_str(), filename.c_str()) != 0) {
     throw std::logic_error("rename log file faild: " + string(strerror(errno)));
