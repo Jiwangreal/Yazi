@@ -1,44 +1,43 @@
 #pragma once
-#include <set>
-#include "Thread.h"
-#include "Mutex.h"
 #include "AutoLock.h"
 #include "Condition.h"
+#include "Mutex.h"
 #include "Task.h"
+#include "Thread.h"
+#include <set>
 
 namespace yazi {
 namespace thread {
 
-
-class ThreadPool
-{
+class ThreadPool {
 public:
-    ThreadPool();
-    ~ThreadPool();
+  ThreadPool();
+  ~ThreadPool();
 
-    void create(int threads);
+  void create(int threads);
 
-    Thread* get_idle_thread();
+  Thread *get_idle_thread();
 
-    void move_to_idle_list(Thread* thread);
-    void move_to_busy_list(Thread* thread);
+  void move_to_idle_list(Thread *thread);
+  void move_to_busy_list(Thread *thread);
 
-    int get_idle_thread_numbers();
-    int get_busy_thread_numbers();
+  int get_idle_thread_numbers();
+  int get_busy_thread_numbers();
 
-    void assign(Task* task);
+  void assign(Task *task);
 
 private:
-    int m_threads;
+  int m_threads;
 
-    std::set<Thread *> m_list_idle;
-    std::set<Thread *> m_list_busy;
+  std::set<Thread *> m_list_idle;
+  std::set<Thread *> m_list_busy;
 
-    Mutex m_mutex_idle;
-    Mutex m_mutex_busy;
+  Mutex m_mutex_idle;
+  Mutex m_mutex_busy;
 
-    Condition m_cond_idle;
-    Condition m_cond_busy;
+  Condition m_cond_idle;
+  Condition m_cond_busy;
 };
 
-}}
+} // namespace thread
+} // namespace yazi

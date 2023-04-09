@@ -3,9 +3,11 @@ import struct
 
 
 def send_data(client, data):
+    # work name="1" switch="on">
     cmd = 1
     data_len = len(data)
-    data = struct.pack(f'8sII{data_len}s', b'work', cmd, data_len, data.encode('utf-8'))
+    data = struct.pack(f'8sII{data_len}s', b'work',
+                       cmd, data_len, data.encode('utf-8'))
     client.send(data)  # 发送TCP数据
     info = client.recv(1024).decode()
     print(info)

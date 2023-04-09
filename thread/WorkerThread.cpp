@@ -8,7 +8,7 @@ using namespace yazi::utility;
 #include "ThreadPool.h"
 using namespace yazi::thread;
 
-WorkerThread::WorkerThread() : Thread()
+WorkerThread::WorkerThread(): Thread()
 {
 }
 
@@ -32,6 +32,7 @@ void WorkerThread::run()
     {
         error("worker thread pthread_sigmask failed");
     }
+    // 线程退出可能执行的函数
     pthread_cleanup_push(cleanup, this);
 
     while (true)
@@ -53,6 +54,7 @@ void WorkerThread::run()
 
         Singleton<ThreadPool>::instance()->move_to_idle_list(this);
 
+        // Linux| |pthread_cancel函数&&取消点(https://blog.csdn.net/qq_40399012/article/details/84255522)
         rc = pthread_setcancelstate(PTHREAD_CANCEL_ENABLE, &old_state);
         pthread_testcancel(); // cancel-point
     }

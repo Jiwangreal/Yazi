@@ -22,4 +22,5 @@ protected:
     Mutex       m_mutex;
 };
 
+
 }}

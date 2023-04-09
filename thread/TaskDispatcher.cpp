@@ -31,7 +31,7 @@ void TaskDispatcher::assign(Task* task)
 void TaskDispatcher::handle(Task* task)
 {
     debug("task dispatcher handle task");
-    ThreadPool * threadpool = Singleton<ThreadPool>::instance();
+    ThreadPool* threadpool = Singleton<ThreadPool>::instance();
     if (threadpool->get_idle_thread_numbers() > 0)
     {
         threadpool->assign(task);

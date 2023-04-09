@@ -4,25 +4,25 @@
 namespace yazi {
 namespace thread {
 
-class Mutex
-{
-    friend class Condition;
+class Mutex {
+  friend class Condition;
 
 public:
-    Mutex();
-    ~Mutex();
+  Mutex();
+  ~Mutex();
 
-    // lock
-    int lock();
+  // lock
+  int lock();
 
-    // try to lock
-    int try_lock();
+  // try to lock
+  int try_lock();
 
-    // unlock
-    int unlock();
+  // unlock
+  int unlock();
 
 private:
-    pthread_mutex_t     m_mutex;
+  pthread_mutex_t m_mutex;
 };
 
-}}
+} // namespace thread
+} // namespace yazi

@@ -2,7 +2,7 @@
 #include "AutoLock.h"
 using namespace yazi::thread;
 
-Thread::Thread() : m_tid(0), m_task(NULL)
+Thread::Thread(): m_tid(0), m_task(NULL)
 {
 }
 
@@ -16,7 +16,7 @@ void Thread::start()
     pthread_attr_init(&attr);
     pthread_attr_setscope(&attr, PTHREAD_SCOPE_SYSTEM);
     pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_DETACHED);
-    pthread_create(&m_tid, &attr, thread_func, (void *)this);
+    pthread_create(&m_tid, &attr, thread_func, (void*)this);
     pthread_attr_destroy(&attr);
 }
 
@@ -27,7 +27,7 @@ void Thread::stop()
 
 void* Thread::thread_func(void* ptr)
 {
-    Thread* thread = (Thread *)ptr;
+    Thread* thread = (Thread*)ptr;
     thread->run();
     return ptr;
 }

@@ -6,30 +6,32 @@
 #include "Task.h"
 
 namespace yazi {
-namespace thread {
 
-class Thread
-{
-public:
-    Thread();
-    virtual ~Thread();
+    namespace thread {
 
-    virtual void run() = 0;
+        class Thread
+        {
+        public:
+            Thread();
+            virtual ~Thread();
 
-    void start();
-    void stop();
+            virtual void run() = 0;
 
-    void set_task(Task* task);
-    Task* get_task();
+            void start();
+            void stop();
 
-protected:
-    static void* thread_func(void* ptr);
+            void set_task(Task* task);
+            Task* get_task();
 
-protected:
-    pthread_t           m_tid;
-    Task*               m_task;
-    Mutex               m_mutex;
-    Condition           m_cond;
-};
+        protected:
+            static void* thread_func(void* ptr);
 
-}}
+        protected:
+            pthread_t           m_tid;
+            Task* m_task;
+            Mutex               m_mutex;
+            Condition           m_cond;
+        };
+
+    }
+}
