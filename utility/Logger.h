@@ -9,7 +9,7 @@
 using std::string;
 
 namespace yazi {
-namespace utility {
+  namespace utility {
 
 #define __DEBUG__
 #define __INFO__
@@ -52,45 +52,45 @@ namespace utility {
 #define fatal(format, ...)
 #endif
 
-class Logger
-{
+    class Logger
+    {
 
-public:
-  enum Level
-  {
-    DEBUG = 0,
-    INFO,
-    WARN,
-    ERROR,
-    FATAL,
-    LEVEL_COUNT
-  };
+    public:
+      enum Level
+      {
+        DEBUG = 0,
+        INFO,
+        WARN,
+        ERROR,
+        FATAL,
+        LEVEL_COUNT
+      };
 
-  Logger();
-  ~Logger();
+      Logger();
+      ~Logger();
 
-  static Logger* instance();
-  void open(const string& logfile);
-  void close();
+      static Logger* instance();
+      void open(const string& logfile);
+      void close();
 
-  void log_debug(const char* file, int line, const char* format, ...);
-  void log_info(const char* file, int line, const char* format, ...);
-  void log_warn(const char* file, int line, const char* format, ...);
-  void log_error(const char* file, int line, const char* format, ...);
-  void log_fatal(const char* file, int line, const char* format, ...);
+      void log_debug(const char* file, int line, const char* format, ...);
+      void log_info(const char* file, int line, const char* format, ...);
+      void log_warn(const char* file, int line, const char* format, ...);
+      void log_error(const char* file, int line, const char* format, ...);
+      void log_fatal(const char* file, int line, const char* format, ...);
 
-protected:
-  void log(Level level,
-           const char* file,
-           int line,
-           const char* format,
-           va_list arg_ptr);
+    protected:
+      void log(Level level,
+        const char* file,
+        int line,
+        const char* format,
+        va_list arg_ptr);
 
-protected:
-  FILE* m_fp;
-  static const char* s_level[LEVEL_COUNT];
-  static Logger* m_instance;
-};
+    protected:
+      FILE* m_fp;
+      static const char* s_level[LEVEL_COUNT];
+      static Logger* m_instance;
+    };
 
-} // namespace utility
+  } // namespace utility
 } // namespace yazi

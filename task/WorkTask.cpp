@@ -16,7 +16,7 @@ using namespace yazi::task;
 using std::ostringstream;
 
 
-WorkTask::WorkTask(Socket * socket) : Task(socket)
+WorkTask::WorkTask(Socket* socket): Task(socket)
 {
 }
 
@@ -27,13 +27,13 @@ WorkTask::~WorkTask()
 void WorkTask::run()
 {
     debug("work task run");
-    SocketHandler * handler = Singleton<SocketHandler>::instance();
+    SocketHandler* handler = Singleton<SocketHandler>::instance();
 
-    Socket * socket = static_cast<Socket *>(m_data);
+    Socket* socket = static_cast<Socket*>(m_data);
 
     MsgHead msg_head;
     memset(&msg_head, 0, sizeof(msg_head));
-    int len = socket->recv((char *)(&msg_head), sizeof(msg_head));
+    int len = socket->recv((char*)(&msg_head), sizeof(msg_head));
     if (len == 0)
     {
         error("socket closed by peer");
@@ -108,8 +108,7 @@ void WorkTask::run()
     }
 
     info("recv msg body len: %d, msg data: %s", len, buf);
-
-    Workflow * workflow = Singleton<Workflow>::instance();
+    Workflow* workflow = Singleton<Workflow>::instance();
 
     ostringstream os;
     os << (int)(msg_head.cmd);

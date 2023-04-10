@@ -6,6 +6,7 @@
 [C++ JSON 解析器设计与实现](https://hkrb7870j3.feishu.cn/docx/doxcnydT1EFccxOQzD7TwVyFZYg)
 [C++ 日志系统](https://hkrb7870j3.feishu.cn/docx/doxcneWdfcpeluG6JyuerarCzsg)
 [C++ 单例模式](https://hkrb7870j3.feishu.cn/docx/doxcnLkN4DIVd5sEz35QRnBdMeh?chunked=false)
+[C++ XML 解析器设计与实现](https://hkrb7870j3.feishu.cn/docx/doxcnUtcYU1HuVV4rUtsZjGw1re)
 
 # Json
 ## 常见的json解析器
@@ -21,3 +22,7 @@
 
 # yazi-json
 [yazi-json](https://github.com/sukai33/yazi-json)
+
+
+# yazi-json
+[yazi-json](https://github.com/yanxicheung/yazi-xml)

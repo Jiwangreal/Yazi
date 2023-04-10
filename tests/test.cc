@@ -6,6 +6,8 @@
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
 #include <iostream>
+#include <sys/time.h>
+
 
 using namespace std;
 using namespace yazi::utility;
@@ -80,3 +82,4 @@ TEST(TestSIngletonA, SIngletonA)
   A::instance()->show();
   Singleton<B>::instance()->show();
 }
+
