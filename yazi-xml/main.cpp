@@ -52,13 +52,21 @@ In file included from main.cpp:3:
    35 |     operator string();
       |     ^~~~~~~~
 **/
-    std::string& out_class = student.attr("class");//error
+// std::string& out_class = student.attr("class");//error
+    const std::string& out_class = student.attr("class");//ok
     const string& name = student["name"].text();
     const string& age = student["age"].text();
     const string& gender = student["gender"].text();
 
     std::cout << id << "," << age << "," << gender << std::endl;
     std::cout << out_class << std::endl;
+
+
+
+    for (Xml::iterator it = root["student"].begin(); it != root["student"].end();++it)
+    {
+        std::cout << it->name() << "," << it->text() << std::endl;
+    }
 
     root.clear();
     return 0;
