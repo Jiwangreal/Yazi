@@ -5,14 +5,4 @@
         <age>21</age>
         <gender>male</gender>
     </student>
-    <student id="2" class="102">
-        <name>Lucy</name>
-        <age>22</age>
-        <gender>female</gender>
-    </student>
-    <student id="3" class="103">
-        <name>Lily</name>
-        <age>23</age>
-        <gender>female</gender>
-    </student>
 </students>
