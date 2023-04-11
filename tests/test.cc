@@ -7,6 +7,7 @@
 #include <gtest/gtest.h>
 #include <iostream>
 #include <sys/time.h>
+#include <list>
 
 
 using namespace std;
@@ -83,3 +84,12 @@ TEST(TestSIngletonA, SIngletonA)
   Singleton<B>::instance()->show();
 }
 
+TEST(TestSomeFunctions, Functions)
+{
+  std::list<int> l = { 1,2,3 };
+  auto node = l.begin();
+  std::cout << *(std::next(node, 1)) << std::endl;
+
+
+
+}

@@ -46,13 +46,17 @@ public:
     Xml(const string & name);
     Xml(const Xml & other);
 
+    // 获取node名称
     string name() const;
-    void name(const string & name);
+    // 设置node名称
+    void name(const string& name);
 
+    // 获取node内容
     string text() const;
     void text(const string & text);
 
-    Value & attr(const string & key);
+    // 获取node属性
+    Value& attr(const string& key);
     void attr(const string & key, const Value & value);
 
     Xml & operator = (const Xml & other);

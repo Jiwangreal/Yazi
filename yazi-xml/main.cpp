@@ -62,12 +62,36 @@ In file included from main.cpp:3:
     std::cout << out_class << std::endl;
 
 
-
     for (Xml::iterator it = root["student"].begin(); it != root["student"].end();++it)
     {
         std::cout << it->name() << "," << it->text() << std::endl;
     }
 
+
     root.clear();
+
+    {
+        Xml s1;
+        s1.name("student");
+        s1.attr("id", "1");
+        s1.attr("class", "101");
+        s1.text("wangji");
+
+        Xml s2;
+        s2.name("student");
+        s2.attr("id", "2");
+        s2.attr("class", "102");
+        s2.text("lulu");
+
+
+        Xml root;
+        root.name("students");
+        root[0] = s1;
+        root.append(s2);
+
+        std::cout << root.str() << std::endl;
+
+        root.clear();
+    }
     return 0;
 }
