@@ -8,6 +8,7 @@
 #include <iostream>
 #include <sys/time.h>
 #include <list>
+#include <unordered_map>
 
 
 using namespace std;
@@ -89,6 +90,20 @@ TEST(TestSomeFunctions, Functions)
   std::list<int> l = { 1,2,3 };
   auto node = l.begin();
   std::cout << *(std::next(node, 1)) << std::endl;
+
+
+
+  std::multimap<std::string, int> u_map;
+  u_map.emplace(std::make_pair("w", 1));
+  u_map.emplace(std::make_pair("w", 2));
+
+  auto start = u_map.lower_bound("w");
+  auto last = u_map.upper_bound("w");
+  for (;start != last;++start)
+  {
+    std::cout << start->first << "," << start->second << std::endl;
+  }
+  // std::cout << "u_map[w]" << u_map["w"] << std::endl;
 
 
 

@@ -73,9 +73,12 @@ In file included from main.cpp:3:
     {
         Xml s1;
         s1.name("student");
-        s1.attr("id", "1");
+        s1.attr("id", 1);
         s1.attr("class", "101");
         s1.text("wangji");
+
+        int id = s1.attr("id");//Value::operator int(),(int)(s1.attr("id"))
+        std::cout << "id: " << id << std::endl;
 
         Xml s2;
         s2.name("student");
@@ -88,6 +91,21 @@ In file included from main.cpp:3:
         root.name("students");
         root[0] = s1;
         root.append(s2);
+
+        // std::cout << root.str() << std::endl;
+
+        // root.remove("student");
+        // 遍历子节点
+        for (auto it = root.begin();it != root.end();++it)
+        {
+            std::cout << it->str() << std::endl;
+        }
+        auto size = root.size();
+        for (auto i = 0;i < size;++i)
+        {
+            std::cout << root[i].str() << std::endl;
+        }
+
 
         std::cout << root.str() << std::endl;
 
