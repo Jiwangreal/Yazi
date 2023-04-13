@@ -108,6 +108,8 @@ In file included from main.cpp:3:
 
 
         std::cout << root.str() << std::endl;
+        std::string name = root["student"].attr("class");
+        std::cout << name << std::endl;
 
         root.clear();
     }
