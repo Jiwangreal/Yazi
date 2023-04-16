@@ -247,6 +247,8 @@ Xml& Xml::operator [] (const string& name)
     {
         m_child = new std::list<Xml>();
     }
+
+    // 返回找到的第一个xml node
     for (auto it = m_child->begin(); it != m_child->end(); it++)
     {
         if (it->name() == name)
