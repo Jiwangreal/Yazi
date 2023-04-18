@@ -3,7 +3,7 @@
 CC = g++
 
 #找出当前目录下，所有的源文件（以.cpp结尾）
-SRCS := $(shell find ./* -type f | grep '\.cpp' | grep -v '\.svn' | grep -v '\./plugin' | grep -v '\./log' | grep -v 'main\.cpp'|grep -v '\./yazi-json')
+SRCS := $(shell find ./* -type f | grep '\.cpp' | grep -v '\.svn' | grep -v '\./plugin' | grep -v '\./log' | grep -v 'main\.cpp'|grep -v '\./yazi-json'|grep -v '\./thread11')
 $(warning SRCS is ${SRCS})
 
 #确定cpp源文件对应的目标文件
@@ -15,7 +15,7 @@ CFLAGS = -g -O2 -Wall -Werror -Wno-unused -ldl -fPIC
 $(warning CFLAGS is ${CFLAGS})
 
 #找出当前目录下所有头文件
-INCLUDE_TEMP = $(shell find ./* -type d | grep -v '\.svn' | grep -v '\./plugin' | grep -v '\./client' | grep -v '\./config' | grep -v '\./log' |grep -v '\./yazi-json')
+INCLUDE_TEMP = $(shell find ./* -type d | grep -v '\.svn' | grep -v '\./plugin' | grep -v '\./client' | grep -v '\./config' | grep -v '\./log' |grep -v '\./yazi-json'| grep -v '\./thread11')
 INCLUDE = $(patsubst %,-I %, $(INCLUDE_TEMP))
 $(warning INCLUDE is ${INCLUDE})
 

@@ -1,9 +1,9 @@
-#include "ThreadPool.h"
-#include "Logger.h"
-#include "WorkerThread.h"
+#include "thread11/ThreadPool.h"
+#include "utility/Logger.h"
+#include "thread11/WorkerThread.h"
 
 using namespace yazi::utility;
-using namespace yazi::thread;
+using namespace yazi::thread11;
 
 ThreadPool::ThreadPool(): m_threads(0) {}
 

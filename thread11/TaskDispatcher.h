@@ -1,10 +1,9 @@
 #pragma once
 
-#include "Task.h"
-#include "Thread.h"
-#include "ThreadPool.h"
+#include "thread11/Task.h"
+#include "thread11/Thread.h"
+#include "thread11/ThreadPool.h"
 #include <list>
-#include <pthread.h>
 #include <signal.h>
 
 namespace yazi {
