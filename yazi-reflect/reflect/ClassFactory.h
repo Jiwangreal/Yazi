@@ -30,8 +30,9 @@ public:
 
   template <typename T> void get(const string &fieldName, T &value);
 
-  template <typename T> void set(const string &fieldName, const T &value);
-  void set(const string &fieldName, const char *value);
+  template <typename T> void set(const string& fieldName, const T& value);
+  
+  void set(const string& fieldName, const char* value);
 
   void call(const string &methodName);
 
@@ -89,7 +90,7 @@ void Object::set(const string &fieldName, const T &value) {
   ClassField *field = Singleton<ClassFactory>::instance()->get_class_field(
       m_className, fieldName);
   size_t offset = field->offset();
-  *((T *)((unsigned char *)(this) + offset)) = value;
+  *((T *)((unsigned char *)(this) + offset)) = value;  
 }
 
 } // namespace reflect
