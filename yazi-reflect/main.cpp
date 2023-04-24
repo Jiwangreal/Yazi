@@ -19,6 +19,9 @@ public:
 
 #define OFFSET(className, fieldName) ((size_t)(&((className *)0)->fieldName))
 
+typedef void (*func)(void);
+void func1() { std::cout << "func" << std::endl; }
+
 int main() {
   ClassFactory *factory = Singleton<ClassFactory>::instance();
   Object *a = factory->create_class("A");
@@ -41,6 +44,12 @@ int main() {
   a->call("f1");
   a->call("f2");
   a->show();
+
+  func f = &func1;
+//   printf("f type %x,%x\n", f, &f);
+// printf("func1 type %x,%x\n", func1, &func1);
+  
+  f();
 
   // 黑科技方式1：类数据成员反射：获取类数据成员的便宜地址offset（有的编译器不支持）
   // auto age_offset = (std::size_t)(&((Test *)0->m_age));
