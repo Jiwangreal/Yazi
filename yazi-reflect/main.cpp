@@ -13,6 +13,7 @@ public:
   std::string m_name;
   int m_age;
   void f1() { std::cout << "Test::f1" << std::endl; }
+
   void call() {
     typedef std::function<void(decltype(this))> memeber_method;
     memeber_method method = &Test::f1;
@@ -53,6 +54,7 @@ int main() {
 
   a->call("f1");
   a->call("f2");
+  auto ret = a->call("f3", 100);
   a->show();
 
   {
@@ -66,10 +68,13 @@ int main() {
     // f2(); // rror: must use ‘.*’ or ‘->*’ to call pointer-to-member function
     // in ‘f2 (...)’, e.g. ‘(... ->* f2) (...)’
 
-    test_method f3 = &Test::f1;
+    test_method f10 = &Test::f1;
     Test t3{"wangji", 31};
-    f3(&t3);
+    f10(&t3);
     t3.call();
+
+    uintptr_t f4 = (uintptr_t)&f10;
+    (*(test_method *)f4)(&t3);
   }
 
   {

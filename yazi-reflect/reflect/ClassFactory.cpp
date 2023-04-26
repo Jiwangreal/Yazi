@@ -40,6 +40,14 @@ void Object::call(const string &methodName) {
   (*(class_method *)(func))(this);
 }
 
+int Object::call(const string &methodName, int num) {
+  ClassMethod *method = Singleton<ClassFactory>::instance()->get_class_method(
+      m_className, methodName);
+  auto func = method->method();
+  typedef std::function<int(decltype(this),int)> class_method;
+  return (*(class_method *)(func))(this, num);
+}
+
 void ClassFactory::register_class(const string &className,
                                   create_object method) {
   m_classMap[className] = method;

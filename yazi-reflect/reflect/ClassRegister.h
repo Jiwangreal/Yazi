@@ -33,20 +33,26 @@ public:
     obj->set_class_name(#className);                                           \
     return obj;                                                                \
   }                                                                            \
-  ClassRegister classRegister##className(#className, createObject##className)
+  ClassRegister classRegister##className(#className, createObject##className);
 
 #define REGISTER_CLASS_FIELD(className, fieldName, fieldType)                  \
   className className##fieldName;                                              \
   ClassRegister classRegister##className##fieldName(                           \
       #className, #fieldName, #fieldType,                                      \
       (size_t)(&(className##fieldName.fieldName)) -                            \
-          (size_t)(&className##fieldName))
+          (size_t)(&className##fieldName));
 
 #define REGISTER_CLASS_METHOD(className, methodName)                           \
   std::function<void(className *)> className##methodName##method =             \
       &className::methodName;                                                  \
   ClassRegister classRegister##className##methodName(                          \
-      #className, #methodName, (uintptr_t) & (className##methodName##method))
+      #className, #methodName, (uintptr_t) & (className##methodName##method));
+
+#define REGISTER_CLASS_METHOD_PARAMETERS(className, methodName)                \
+  std::function<int(className *, int)> className##methodName##method =         \
+      &className::methodName;                                                  \
+  ClassRegister classRegister##className##methodName(                          \
+      #className, #methodName, (uintptr_t) & (className##methodName##method));
 
 } // namespace reflect
 } // namespace yazi
