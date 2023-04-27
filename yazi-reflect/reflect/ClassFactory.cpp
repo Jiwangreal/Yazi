@@ -44,7 +44,8 @@ int Object::call(const string &methodName, int num) {
   ClassMethod *method = Singleton<ClassFactory>::instance()->get_class_method(
       m_className, methodName);
   auto func = method->method();
-  typedef std::function<int(decltype(this),int)> class_method;
+  typedef std::function<int(decltype(this), int)> class_method;
+  std::cout << this << std::endl;
   return (*(class_method *)(func))(this, num);
 }
 

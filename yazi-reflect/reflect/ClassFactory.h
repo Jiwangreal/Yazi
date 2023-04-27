@@ -43,6 +43,7 @@ private:
   string m_className;
 };
 
+// 原因：在调用create_class时，才调用被反射的类的构造函数
 typedef Object *(*create_object)(void);
 
 class ClassFactory {
