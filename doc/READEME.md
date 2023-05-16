@@ -9,6 +9,7 @@
 [C++ XML 解析器设计与实现](https://hkrb7870j3.feishu.cn/docx/doxcnUtcYU1HuVV4rUtsZjGw1re)
 [C++ 多线程：线程池从设计到实现](https://hkrb7870j3.feishu.cn/docx/XTLMddXzpoWMOwx9xDuc2WFXnfc)
 [C++ 反射：从设计到实现](https://hkrb7870j3.feishu.cn/docx/C2kcdp7a6oBEz3xQqXVcc6OMnah)
+[Yazi-RPC: 一个高性能的RPC框架](https://hkrb7870j3.feishu.cn/docx/M60ddvQh7oocLmxnPeQcTlpnnUD)
 
 # Json
 ## 常见的json解析器

@@ -19,7 +19,9 @@ int main() {
   int threads = (*ini)["server"]["threads"];
   int max_conn = (*ini)["server"]["max_conn"];
   int wait_time = (*ini)["server"]["wait_time"];
+  ini->show();
 
+  
   Server* server = Singleton<Server>::instance();
   server->set_threads(threads);
   server->set_connects(max_conn);

@@ -3,17 +3,16 @@
 #include "Mutex.h"
 
 namespace yazi {
-    namespace thread {
+namespace thread {
 
-        class AutoLock
-        {
-        public:
-            AutoLock(Mutex* mutex);
-            ~AutoLock();
+class AutoLock {
+public:
+  AutoLock(Mutex *mutex);
+  ~AutoLock();
 
-        private:
-            Mutex* m_mutex;
-        };
+private:
+  Mutex *m_mutex;
+};
 
-    }
-}
+} // namespace thread
+} // namespace yazi

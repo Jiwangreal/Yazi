@@ -8,21 +8,21 @@
 #include <signal.h>
 
 namespace yazi {
-  namespace thread {
+namespace thread {
 
-    class TaskDispatcher: public Thread {
-    public:
-      TaskDispatcher();
-      ~TaskDispatcher();
+class TaskDispatcher : public Thread {
+public:
+  TaskDispatcher();
+  ~TaskDispatcher();
 
-      void init(int threads);
-      void assign(Task* task);
-      void handle(Task* task);
-      virtual void run();
+  void init(int threads);
+  void assign(Task *task);
+  void handle(Task *task);
+  virtual void run() override;
 
-    protected:
-      std::list<Task*> m_tasks;
-    };
+protected:
+  std::list<Task *> m_tasks;
+};
 
-  } // namespace thread
+} // namespace thread
 } // namespace yazi

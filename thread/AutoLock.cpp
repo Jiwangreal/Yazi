@@ -2,13 +2,9 @@
 
 using namespace yazi::thread;
 
-AutoLock::AutoLock(Mutex* mutex)
-{
-    m_mutex = mutex;
-    m_mutex->lock();
+AutoLock::AutoLock(Mutex *mutex) {
+  m_mutex = mutex;
+  m_mutex->lock();
 }
 
-AutoLock::~AutoLock()
-{
-    m_mutex->unlock();
-}
+AutoLock::~AutoLock() { m_mutex->unlock(); }
