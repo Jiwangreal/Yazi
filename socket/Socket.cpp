@@ -114,7 +114,7 @@ bool Socket::set_recv_buffer(int size) {
   }
   return true;
 }
-
+// TCP选项之SO_LINGER的作用与意义:https://blog.csdn.net/xiaokaige198747/article/details/75389113
 bool Socket::set_linger(bool active, int seconds) {
   struct linger l;
   memset(&l, 0, sizeof(l));
