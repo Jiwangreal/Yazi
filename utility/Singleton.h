@@ -20,8 +20,6 @@ protected:
   ~Singleton() {}
 };
 
-template <typename T> T *Singleton<T>::m_instance;
-
 namespace other {
 template <typename T> class Singleton {
 public:

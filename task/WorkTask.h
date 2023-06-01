@@ -10,22 +10,21 @@ namespace yazi {
 namespace task {
 
 struct MsgHead {
-    char flag[8];
-    uint32_t cmd;
-    uint32_t len;
+  char flag[8];
+  uint32_t cmd;
+  uint32_t len;
 };
 
 const uint32_t recv_buff_size = 1024;
 
-
-class WorkTask : public Task
-{
+class WorkTask : public Task {
 public:
-    WorkTask(Socket * socket);
-    virtual ~WorkTask();
+  WorkTask(Socket *socket);
+  virtual ~WorkTask();
 
-    virtual void run();
-    virtual void destroy();
+  virtual void run();
+  virtual void destroy();
 };
 
-}}
+} // namespace task
+} // namespace yazi
