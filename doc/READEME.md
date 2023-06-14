@@ -32,3 +32,10 @@
 
 # yazi-reflect
 [yazi-reflect](https://github.com/zjwxingtaide/yazi-reflect)
+
+
+# yazi-filesystem
+
+仅有文档
+
+[C++ 跨平台文件、目录操作](https://hkrb7870j3.feishu.cn/docx/Fvn4d2j6hooOYVxy2k3cZ8qnnlf)
